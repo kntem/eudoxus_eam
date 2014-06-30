@@ -1,0 +1,124 @@
+#header {
+    height: 104;
+    background-color: #243442;
+    display: block;
+}
+
+#mainmenu {
+    height: 64;
+    background-color: #308ccf;
+}
+
+#subtitle {
+    height: 89;
+    background-image:url('img/subtitle-bg.png');
+}
+
+#content {
+    height: 1486;
+    background-image: url('img/main-bg.png');
+}
+
+#footer{
+    height: 104;
+    background-color: #243442;
+}
+
+
+
+form {
+    float: left;
+    margin-top: 30px;
+    margin-left: 60px;
+}
+
+.search {
+    height:51px;
+    width: 650px;
+    padding:15px;
+    border-width: 1px;
+    border-radius: 6px;
+    background: #ebecec;
+    border:1px solid #dbdbdb;
+    font-size: 15px;
+}
+
+.rounded {
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+#search-button{
+    text-indent: -99999px;
+    position: relative;
+    margin-left: -60px;
+    margin-top: auto;
+	cursor: pointer;
+    border:0;
+    background: url('img/magnifier.png') 00 no-repeat;
+    width: 57px;
+    height: 32px;
+}
+
+#user {
+    float: right;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: 80px;
+}
+
+#username{
+    margin-top: 20px;
+    float: right;
+    font:18px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #d5d6d6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
