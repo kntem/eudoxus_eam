@@ -1,41 +1,52 @@
 #header {
-    height: 104;
+    height: 64;
     background-color: #243442;
     display: block;
+    padding: 10px;
 }
 
 #mainmenu {
     height: 64;
     background-color: #308ccf;
+    color: white;
+    padding: 18px;
 }
 
 #subtitle {
-    height: 89;
+    height: 64;
     background-image:url('img/subtitle-bg.png');
+    padding: 12px;
+}
+
+.blue-font {
+    color: #308ccf;
 }
 
 #content {
-    height: 1486;
+    height: auto;
     background-image: url('img/main-bg.png');
 }
 
 #footer{
-    height: 104;
+    height: 64;
     background-color: #243442;
+    padding: 7px;
 }
 
-
+#homepage-general{
+    padding: 30px;
+}
 
 form {
     float: left;
-    margin-top: 30px;
-    margin-left: 60px;
+    margin-top: 8px;
+    margin-left: 5px;
 }
 
 .search {
-    height:51px;
-    width: 650px;
-    padding:15px;
+    height:30px;
+    width: 400px;
+    padding:5px;
     border-width: 1px;
     border-radius: 6px;
     background: #ebecec;
@@ -63,9 +74,7 @@ form {
 
 #user {
     float: right;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: 80px;
+    margin-top: 8px;
 }
 
 #username{
@@ -76,6 +85,10 @@ form {
     color: #d5d6d6;
 }
 
+.separator{
+    border-bottom: 1px solid #ccc;
+    width: 700px;
+}
 
 
 
