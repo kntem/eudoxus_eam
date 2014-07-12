@@ -1,3 +1,16 @@
+a:active{ 
+    outline: none;
+}
+a:focus{ 
+    outline: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+
+
 #header {
     height: 64;
     background-color: #243442;
@@ -25,12 +38,14 @@
 #content {
     height: auto;
     background-image: url('img/main-bg.png');
+    padding-top:15px:
+    padding-bottom:15px:
 }
 
 #footer{
     height: 64;
-    background-color: #243442;
-    padding: 7px;
+    background-color: #308ccf;
+    padding: 10px;
 }
 
 #homepage-general{
@@ -88,6 +103,10 @@ form {
 .separator{
     border-bottom: 1px solid #ccc;
     width: 700px;
+}
+
+.bottom-border{
+    border-bottom: 1px solid #308ccf;
 }
 
 

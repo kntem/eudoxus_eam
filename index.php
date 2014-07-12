@@ -2,7 +2,6 @@
 <head>
     <title>Eudoxus home</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -39,9 +38,11 @@
             </div>
 
             <div id="subtitle" class="row blue-font">
-                <div class="col-md-12" >
+                <div class="col-md-1" >
                     <div style="float:left;"><img style="height: 30;margin-top: 5px;" src="img/books.png"></div>
-                    <div style="margin-left:55px; margin-top: 5px;" class="lead"> Ηλεκτρονική Υπηρεσία Ολοκληρωμένης Διαχείρισης Συγγραμμάτων και λοιπών βοηθημάτων</div>
+                </div>
+                <div class="col-md-10" >
+                    <div style="margin-left:-52px; margin-top: 5px;" class="lead"> Ηλεκτρονική Υπηρεσία Ολοκληρωμένης Διαχείρισης Συγγραμμάτων και λοιπών βοηθημάτων</div>
                 </div>
             </div>
 
