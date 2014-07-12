@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Eudoxus home</title>
+    <title>Eudoxus Login/Registration</title>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -33,10 +33,14 @@
                             <input id="search-button" type="button" value="">
                     </form>
                 </div>
-                <div id=user class="col-md-3">
-                    <img style="float: right; margin-top: 22px;" src="img/down-arrow.png">
-                    <div id="username">guest</div>
-                    <img style="float: right;" src="img/user-icon.png">
+                <div id=user class="dropdown col-md-3">
+                        <a style="float: right; margin-top: 17px;" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="register.php">
+                                <span id="username">guest</span><span class="caret" style="color:white"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a href="register.php">Σύνδεση ή Εγγραφή</a></li>
+                        </ul>
+                        <img style="float: right;" src="img/user-icon.png">
                 </div>
             </div>
 
@@ -61,16 +65,25 @@
                 </div>
                 <div class="col-md-11" >
                     <div class="row">
-                        <div style="margin-left:5px;" class="lead"> Ηλεκτρονική Υπηρεσία Ολοκληρωμένης Διαχείρισης Συγγραμμάτων και λοιπών βοηθημάτων</div>
-                        <div>
-                            <a href="#">Home</a> / <span>Εγγραφή</span>
+                        <div style="margin-left:5px;" class="lead">
+                            Ηλεκτρονική Υπηρεσία Ολοκληρωμένης Διαχείρισης Συγγραμμάτων και λοιπών βοηθημάτων
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="content" class="row">
 
+
+            <div id="content" class="row">
+                <div class="row">
+                    <div class="col-md-1" ></div>
+                    <div class="col-md-11" >
+                        <ol class="breadcrumb" style="background:none;">
+                            <li><a href="index.php">Αρχική</a></li>
+                            <li class="active">Εγγραφή/Σύνδεση</li>
+                        </ol>
+                    </div>
+                </div>
 <!-- ---------------------------- LOGIN ---------------------------- -->
 
                 <div class="row" id="login">
@@ -134,7 +147,7 @@
                         <div class="col-md-1"></div>
                         <div class="col-md-11" style="padding:10px;">
                             <!-- Nav tabs -->
-                            <ul class="nav nav-pills bottom-border" id="registration-tabs" role="tablist" style="width: 550px;">
+                            <ul class="nav nav-pills" id="registration-tabs" role="tablist" style="width: 550px;">
                               <li class="active"><a href="#secretary-reg" role="tab" data-toggle="tab">Γραμματεία Τμήματος</a></li>
                               <li><a href="#publisher-reg" role="tab" data-toggle="tab">Εκδότης</a></li>
                               <li><a href="#notes-provider-reg" role="tab" data-toggle="tab">Διαθέτης βοηθημάτων και σημειώσεων</a></li>
@@ -143,20 +156,20 @@
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                              <div class="tab-pane active" id="secretary-reg">secretary stuff</div>
-                              <div class="tab-pane" id="publisher-reg">publisher stuff</div>
-                              <div class="tab-pane" id="notes-provider-reg">notes provider stuff</div>
+                                <div class="tab-pane fade active" id="secretary-reg">
+                                    secretary stuff
+                                </div>
+                                <div class="tab-pane fade" id="publisher-reg">
+                                    publisher stuff
+                                </div>
+                                <div class="tab-pane fade" id="notes-provider-reg">
+                                    notes provider stuff
+                                </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-
-
-
-
-<!-- ---------------------------------------------------------------------- -->
-
 
 
 
