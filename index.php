@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-    <div class="container-fluid">
+    <div class="container-fluid" style="min-width: 970px;">
             <div id="header" class="row">
                 <div class="col-md-2"><img src="img/logo.png"></div>
                 <div class="col-md-7">

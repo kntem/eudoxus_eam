@@ -24,7 +24,7 @@
 
 
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-    <div class="container-fluid">
+    <div class="container-fluid" style="min-width: 970px;">
             <div id="header" class="row">
                 <div class="col-md-2"><img src="img/logo.png"></div>
                 <div class="col-md-7">
@@ -148,15 +148,15 @@
                         <div class="col-md-11" style="padding:10px;">
                             <!-- Nav tabs -->
                             <ul class="nav nav-pills" id="registration-tabs" role="tablist" style="width: 550px;">
-                              <li class="active"><a href="#secretary-reg" role="tab" data-toggle="tab">Γραμματεία Τμήματος</a></li>
-                              <li><a href="#publisher-reg" role="tab" data-toggle="tab">Εκδότης</a></li>
-                              <li><a href="#notes-provider-reg" role="tab" data-toggle="tab">Διαθέτης βοηθημάτων και σημειώσεων</a></li>
+                                <li class="active"><a href="#secretary-reg" role="tab" data-toggle="tab">Γραμματεία Τμήματος</a></li>
+                                <li><a href="#publisher-reg" role="tab" data-toggle="tab">Εκδότης</a></li>
+                                <li><a href="#notes-provider-reg" role="tab" data-toggle="tab">Διαθέτης βοηθημάτων και σημειώσεων</a></li>
                             </ul>
 
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane fade active" id="secretary-reg">
+                                <div class="tab-pane fade active in" id="secretary-reg">
                                     secretary stuff
                                 </div>
                                 <div class="tab-pane fade" id="publisher-reg">

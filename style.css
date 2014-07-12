@@ -1,7 +1,7 @@
-a:active{ 
+a:active{
     outline: none;
 }
-a:focus{ 
+a:focus{
     outline: none;
 }
 
@@ -9,7 +9,9 @@ button::-moz-focus-inner {
   border: 0;
 }
 
-
+html,body{
+    height: 100%
+}
 
 #header {
     height: 64;
@@ -36,10 +38,10 @@ button::-moz-focus-inner {
 }
 
 #content {
-    height: auto;
+    height: 100%;
     background-image: url('img/main-bg.png');
-    padding-top:15px:
-    padding-bottom:15px:
+    padding-top:15px;
+    padding-bottom:15px;
 }
 
 #footer{
@@ -55,7 +57,7 @@ button::-moz-focus-inner {
 form {
     float: left;
     margin-top: 8px;
-    margin-left: 5px;
+    margin-left: 15px;
 }
 
 .search {
