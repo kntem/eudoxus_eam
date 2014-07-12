@@ -15,9 +15,13 @@
                             <input id="search-button" type="button" value="">
                     </form>
                 </div>
-                <div id=user class="col-md-3">
-                    <img style="float: right; margin-top: 22px;" src="img/down-arrow.png">
-                    <div id="username">guest</div>
+                <div id=user class="dropdown col-md-3">
+                    <a style="float: right; margin-top: 17px;" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="register.php">
+                            <span id="username">guest</span><span class="caret" style="color:white"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <li><a href="register.php">Σύνδεση ή Εγγραφή</a></li>
+                    </ul>
                     <img style="float: right;" src="img/user-icon.png">
                 </div>
             </div>
