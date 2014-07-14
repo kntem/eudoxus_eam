@@ -14,7 +14,7 @@ html,body{
 }
 
 #header {
-    height: 64;
+    height: 64px;
     background-color: #243442;
     display: block;
     padding: 10px;
@@ -32,7 +32,7 @@ html,body{
 }
 
 #subtitle {
-    height: 64;
+    height: 64px;
     background-image:url('img/subtitle-bg.png');
     padding: 10px;
     font-size:14px;
@@ -43,16 +43,28 @@ html,body{
 }
 
 #content {
-    min-height: 100%;
     background-image: url('img/main-bg.png');
     padding-top:15px;
     padding-bottom:15px;
 	height:100%;
-	min-height:100%; /* real browsers */
+    min-height: 100%;
+    position: relative;
 }
 
+/* workaround for index content */
+
+#large-content {
+    background-image: url('img/main-bg.png');
+    padding-top:15px;
+    padding-bottom:15px;
+	height:auto;
+    min-height: 100%;
+    position: relative;
+}
+
+
 #footer{
-    height: 64;
+    height: 64px;
     background-color: #308ccf;
     margin-top:0px;
     padding: 10px;

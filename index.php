@@ -10,8 +10,8 @@
 
             <?php include 'header.php' ?>
 
-            <div id="content" class="row">
-                <div id="homepage-general" class="row">
+            <div id="large-content" class="row">
+                <div id="homepage-general" class="row" style="height: auto;">
 
                     <div class="col-xs-3">
                         <div class="row">
@@ -67,7 +67,7 @@
 
                 </div>
 
-<!------------------------------ STUDENTS ------------------------------>
+<!--                             STUDENTS                             -->
 
                 <div class="row" id="homepage-students">
                     <div class="row">
@@ -107,7 +107,7 @@
                     </div>
                 </div>
 
-<!------------------------------ PROFESSORS ------------------------------>
+<!--                             PROFESSORS                             -->
 
 
                 <div class="row" id="homepage-professors">
@@ -148,7 +148,7 @@
                     </div>
                 </div>
 
-<!------------------------------ SECRETARY ------------------------------>
+<!--                             SECRETARY                             -->
 
 
                 <div class="row" id="homepage-secretary">
@@ -189,7 +189,7 @@
                     </div>
                 </div>
 
-<!------------------------------ PUBLISHERS ------------------------------>
+<!--                             PUBLISHERS ------------------------------>
 
                 <div class="row" id="homepage-publishers">
                     <div class="row">
