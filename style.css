@@ -10,7 +10,7 @@ button::-moz-focus-inner {
 }
 
 html,body{
-    height: 100%
+    height: 100%;
 }
 
 #header {
@@ -21,16 +21,21 @@ html,body{
 }
 
 #mainmenu {
-    height: 64;
+    height: 52px;
     background-color: #308ccf;
+    padding: 12px;
+}
+
+.mainmenu-font{
     color: white;
-    padding: 18px;
+    font-size: 15px;
 }
 
 #subtitle {
     height: 64;
     background-image:url('img/subtitle-bg.png');
-    padding: 12px;
+    padding: 10px;
+    font-size:14px;
 }
 
 .blue-font {
@@ -38,15 +43,18 @@ html,body{
 }
 
 #content {
-    height: 100%;
+    min-height: 100%;
     background-image: url('img/main-bg.png');
     padding-top:15px;
     padding-bottom:15px;
+	height:100%;
+	min-height:100%; /* real browsers */
 }
 
 #footer{
     height: 64;
     background-color: #308ccf;
+    margin-top:0px;
     padding: 10px;
 }
 
