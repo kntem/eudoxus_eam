@@ -1,10 +1,10 @@
 <html>
 <head>
     <title>Eudoxus home</title>
-    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script type="text/javascript">
@@ -20,7 +20,7 @@
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
     <div class="container-fluid" style="min-width: 970px;">
             <div id="header" class="row">
-                <div class="col-xs-2"><img src="../img/logo.png"></div>
+                <div class="col-xs-2"><img src="img/logo.png"></div>
                 <div class="col-xs-7">
                     <form>
                             <input class="search rounded" type="text" placeholder="αναζήτηση συγγραμμάτων..." required>
@@ -34,20 +34,21 @@
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                         <li><a href="register.php">Σύνδεση ή Εγγραφή</a></li>
                     </ul>
-                    <img style="float: right;" src="../img/user-icon.png">
+                    <img style="float: right;" src="img/user-icon.png">
                 </div>
             </div>
 
             <div id="mainmenu" class="row">
                 <div class="row text-center" >
-                    <div class="col-xs-2 lead" style="font-size:16px;">Αρχική</div>
-                    <div class="col-xs-2 lead" style="font-size:16px;">Ανακοινώσεις</div>
-                    <div class="col-xs-2 lead" style="font-size:16px;">Επικοινωνία</div>
-                    <div class="col-xs-2 lead" style="font-size:16px;">Χρήσιμα</div>
-                    <div class="col-xs-2 lead" style="float:right;">
-                        <img src="../img/rss-logo-big.png">
-                        <img src="../img/facebook-logo-big.png">
-                        <img src="../img/twitter-logo-big.png">
+                    <div class="col-xs-2 lead mainmenu-font">Αρχική</div>
+                    <div class="col-xs-2 lead mainmenu-font">Ανακοινώσεις</div>
+                    <div class="col-xs-2 lead mainmenu-font">Επικοινωνία</div>
+                    <div class="col-xs-2 lead mainmenu-font">Χρήσιμα</div>
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-2 lead mainmenu-font"style="float:right;">
+                        <img src="img/rss-logo-big.png">
+                        <img src="img/facebook-logo-big.png">
+                        <img src="img/twitter-logo-big.png">
                     </div>
 
                 </div>
@@ -55,7 +56,7 @@
 
             <div id="subtitle" class="row blue-font">
                 <div class="col-xs-1" >
-                    <div style="float:left;"><img style="height: 30;margin-top: 5px; margin-right:5px;" src="../img/books.png"></div>
+                    <div style="float:left;"><img style="height: 30;margin-top: 5px;" src="img/books.png"></div>
                 </div>
                 <div class="col-xs-10" >
                     <div style="margin-left:-52px; margin-top: 5px;" class="lead"> Ηλεκτρονική Υπηρεσία Ολοκληρωμένης Διαχείρισης Συγγραμμάτων και λοιπών βοηθημάτων</div>
@@ -63,6 +64,17 @@
             </div>
 
             <div id="content" class="row">
+
+                <div class="row">
+                    <div class="col-xs-1" ></div>
+                    <div class="col-xs-11" >
+                        <ol class="breadcrumb" style="background:none;">
+                            <li><a href="index.php">Αρχική</a></li>
+                            <li class="active">Προφίλ</li>
+                        </ol>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-xs-1"></div>
                     <div class="col-xs-8" >
@@ -111,7 +123,7 @@
                                         <td align="right">Τρέχον Εξάμηνο</td><td>14</td>
                                     </tr>
                                 </table>
-                                <div class="col-xs-8"></div>
+                                <div class="col-xs-10"></div>
                                 <div class="col-xs-1">
                                      <button type="submit" class="btn btn-primary">Επεξεργασία</button>
                                 </div>
@@ -136,8 +148,8 @@
                                   <br>Με τη συγχρηματοδότηση της Ελλάδας & της Ευρωπαϊκής Ένωσης</div>
             <div class="col-xs-4"></div>
             <div class="col-xs-2">
-                <img src="../img/facebook-logo-big.png">
-                <img src="../img/twitter-logo-big.png">
+                <img src="img/facebook-logo-big.png">
+                <img src="img/twitter-logo-big.png">
             </div>
         </div>
     </div>
