@@ -14,20 +14,61 @@ class Book {
 	private $publisher;
 	private $webpage;
 	private $location;
-	private $cover;
 	private $dimensions;
 	private $pages;
-    private $contents;
 
-    function __construct($id) {
+    function __construct() {
+        // Gets book from db and calls set_book
     }
 
-   function get_book($id){
-    }
 
     function set_book($id, $type, $cover_image, $authors, $edition, $isbn,
                       $publisher, $webpage, $location, $cover, $dimensions,
-                      $pages, $contents){
+                      $pages){
+        $this->id = $id;
+        $this->type= $type;
+        $this->cover_image = $cover_image;
+        $this->authors = $authors;
+        $this->edition = $isbn;
+        $this->publisher = $publisher;
+        $this->webpage = $location;
+        $this->cover = $dimensions;
+        $this->pages = $pages;
+    }
+
+
+    function get_id(){
+        return $this->id;
+    }
+    function get_type(){
+        return $this->type;
+    }
+    function get_cover_image(){
+        return $this->cover_image;
+    }
+    function get_authors(){
+        return $this->authors;
+    }
+    function get_edition(){
+        return $this->edition;
+    }
+    function get_isbn(){
+        return $this->edition;
+    }
+    function get_publisher(){
+        return $this->publisher;
+    }
+    function get_webpage(){
+        return $this->webpage;
+    }
+    function get_location(){
+        return $this->location;
+    }
+    function get_dimensions(){
+        return $this->dimensions;
+    }
+    function get_pages(){
+        return $this->pages;
     }
 }
 
