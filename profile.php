@@ -89,7 +89,78 @@
                             </div>
 
                             <div class="tab-pane fade" id="history">
-                                publisher stuff
+
+                                <!-- 1 statement-->
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                    <div class="row">
+                                                        <div class="col-xs-10" style="height: 30px;">
+                                                            <div class="lead">Χειμερινό 13-14</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <table class="table table-hover lead blue-font" style="font-size:14px;">
+                                                        <tr class="lead" style="font-size:16px; color:rgb(51, 51, 51); background-color:rgb(245, 245, 245);">
+                                                            <td align="right">Μάθημα</td><td>Σύγγραμμα</td><td>Συγγραφέας/είς</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right">Τεχνητή Νοημοσύνη</td><td>Τεχνητη Νοημοσύνη - Μια Σύγχρονη Προσέγγιση </td><td>Stuart Russel, Peter Norvig</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right">Γραφικά Ι</td><td>Γραφικά και Οπτικοποίηση</td><td>Θεοχάρης Παπαιωάννου, Πλατής Πατρικαλάκης</td>
+                                                        </tr>
+
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of statement-->
+
+                                    <!-- 2 statement-->
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                                    <div class="row">
+                                                        <div class="col-xs-10" style="height: 30px;">
+                                                            <div class="lead">Εαρινό 14</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse in">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <table class="table table-hover lead blue-font" style="font-size:14px;">
+                                                        <tr class="lead" style="font-size:16px; color:rgb(51, 51, 51); background-color:rgb(245, 245, 245);">
+                                                            <td align="right">Μάθημα</td><td>Σύγγραμμα</td><td>Συγγραφέας/είς</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right">Επικοινωνία Ανθρώπου Μηχανής</td><td>Επικοινωνία Ανθρώπου Υπολογιστή</td><td>Dix Alan J.,Finlay Janet E.,Abowd Gregory D.,Beale Russell</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right">Μεταγλωττιστές</td><td>Αρχές, Τεχνικές & Εργαλεία</td><td>Alfred V. Aho, Monica S. Lam, Ravi Sethi, Jeffrey D. Ullman</td>
+                                                        </tr>
+
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end of statement-->
+
+
                             </div>
                             <div class="tab-pane fade" id="statement">
                                 notes provider stuff
