@@ -6,17 +6,17 @@
 class Book {
 
     private $id;
-	private $type;
+    private $type;
     private $cover_image;
-	private $authors;
-	private $edition;
-	private $isbn;
-	private $publisher;
-	private $webpage;
-	private $location;
-	private $dimensions;
-	private $pages;
-	private $abstract;
+    private $authors;
+    private $edition;
+    private $isbn;
+    private $publisher;
+    private $webpage;
+    private $location;
+    private $dimensions;
+    private $pages;
+    private $abstract;
 
     function __construct() {
         // Gets book from db and calls set_book
