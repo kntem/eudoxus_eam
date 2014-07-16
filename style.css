@@ -11,6 +11,7 @@ button::-moz-focus-inner {
 
 html,body{
     height: 100%;
+    width: 100%;
 }
 
 #header {
@@ -122,6 +123,11 @@ form {
 
 .separator{
     border-bottom: 1px solid #ccc;
+    width: 700px;
+}
+
+.blue-separator{
+    border-bottom: 1px solid #308ccf;
     width: 700px;
 }
 
