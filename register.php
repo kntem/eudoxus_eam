@@ -23,7 +23,7 @@
 
 
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-    <div class="container-fluid" style="min-width: 970px;">
+    <div class="container-fluid" style="min-width: 1200px;">
 
         <?php include 'header.php' ?>
 
@@ -63,21 +63,22 @@
                     <div class="col-xs-11 ">
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
-                            <label for="inputRegUsername" class="col-sm-5 control-label lead blue-font" style="font-size:14px;">Όνομα χρήστη</label>
-                            <div class="col-sm-7">
+                            <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Όνομα χρήστη</label>
+                            <div class="col-sm-4">
                                 <input type="text" class="form-control" id="inputRegUsername" placeholder="username or email">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputRegPassword" class="col-sm-5 control-label lead blue-font" style="font-size:14px;">Email</label>
-                            <div class="col-sm-7">
+                            <label for="inputRegPassword" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Email</label>
+                            <div class="col-sm-4">
                                 <input type="password" class="form-control" id="inputRegPassword" placeholder="password">
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-offset-10 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Σύνδεση</button>
-                        </div>
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-primary">Σύνδεση</button>
+                            </div>
                       </div>
                     </form>
                     </div>

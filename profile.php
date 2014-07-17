@@ -18,7 +18,7 @@
 
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-    <div class="container-fluid" style="min-width: 970px;">
+    <div class="container-fluid" style="min-width: 1200px;">
 
             <?php include 'header.php' ?>
 

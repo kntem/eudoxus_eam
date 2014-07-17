@@ -25,6 +25,7 @@ html,body{
     height: 52px;
     background-color: #308ccf;
     padding: 12px;
+    display: block;
 }
 
 .mainmenu-font{
@@ -37,6 +38,7 @@ html,body{
     background-image:url('img/subtitle-bg.png');
     padding: 10px;
     font-size:14px;
+    display: block;
 }
 
 .blue-font {
@@ -50,6 +52,7 @@ html,body{
 	height:100%;
     min-height: 100%;
     position: relative;
+    display: block;
 }
 
 /* workaround for index content */
@@ -61,6 +64,7 @@ html,body{
 	height:auto;
     min-height: 100%;
     position: relative;
+    display: block;
 }
 
 
@@ -75,7 +79,7 @@ html,body{
     padding: 30px;
 }
 
-form {
+#search-form {
     float: left;
     margin-top: 8px;
     margin-left: 15px;
