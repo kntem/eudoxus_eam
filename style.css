@@ -10,27 +10,35 @@ button::-moz-focus-inner {
 }
 
 html,body{
-    height: 100%
+    height: 100%;
+    width: 100%;
 }
 
 #header {
-    height: 64;
+    height: 64px;
     background-color: #243442;
     display: block;
     padding: 10px;
 }
 
 #mainmenu {
-    height: 64;
+    height: 52px;
     background-color: #308ccf;
+    padding: 12px;
+    display: block;
+}
+
+.mainmenu-font{
     color: white;
-    padding: 18px;
+    font-size: 15px;
 }
 
 #subtitle {
-    height: 64;
+    height: 64px;
     background-image:url('img/subtitle-bg.png');
-    padding: 12px;
+    padding: 10px;
+    font-size:14px;
+    display: block;
 }
 
 .blue-font {
@@ -38,15 +46,32 @@ html,body{
 }
 
 #content {
-    height: 100%;
     background-image: url('img/main-bg.png');
     padding-top:15px;
     padding-bottom:15px;
+	height:100%;
+    min-height: 100%;
+    position: relative;
+    display: block;
 }
 
+/* workaround for index content */
+
+#large-content {
+    background-image: url('img/main-bg.png');
+    padding-top:15px;
+    padding-bottom:15px;
+	height:auto;
+    min-height: 100%;
+    position: relative;
+    display: block;
+}
+
+
 #footer{
-    height: 64;
+    height: 64px;
     background-color: #308ccf;
+    margin-top:0px;
     padding: 10px;
 }
 
@@ -54,7 +79,7 @@ html,body{
     padding: 30px;
 }
 
-form {
+#search-form {
     float: left;
     margin-top: 8px;
     margin-left: 15px;
@@ -102,6 +127,11 @@ form {
 
 .separator{
     border-bottom: 1px solid #ccc;
+    width: 700px;
+}
+
+.blue-separator{
+    border-bottom: 1px solid #308ccf;
     width: 700px;
 }
 
