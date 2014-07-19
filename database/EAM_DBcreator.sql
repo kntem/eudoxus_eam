@@ -176,6 +176,7 @@ CREATE  TABLE IF NOT EXISTS `std10179db`.`Books` (
   `Author` VARCHAR(45) NULL ,
   `Field_of_Study` VARCHAR(45) NULL ,
   `Cover_image` VARCHAR(45) NULL ,
+  `Binding` VARCHAR(45) NULL ,
   `Edition` VARCHAR(45) NULL ,
   `Webpage` VARCHAR(45) NULL ,
   `Location` VARCHAR(45) NULL ,
