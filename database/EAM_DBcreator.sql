@@ -8,7 +8,9 @@ USE `std10179db` ;
 -- -----------------------------------------------------
 -- Table `mydb`.`Users`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Users` (
+DROP TABLE `std10179db`.`Users` ;
+
+CREATE  TABLE `std10179db`.`Users` (
   `ID` INT NOT NULL ,
   `Username` VARCHAR(45) NOT NULL ,
   `Password` VARCHAR(45) NOT NULL ,
@@ -25,7 +27,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Secretaries`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Secretaries` (
+DROP TABLE `std10179db`.`Secretaries` ;
+
+CREATE  TABLE `std10179db`.`Secretaries` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Telephone` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) ,
@@ -41,7 +45,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`University`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`University` (
+DROP TABLE `std10179db`.`University` ;
+
+CREATE  TABLE `std10179db`.`University` (
   `id` INT NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
@@ -50,7 +56,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Department`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Department` (
+DROP TABLE `std10179db`.`Department` ;
+
+CREATE  TABLE `std10179db`.`Department` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Secretary` INT UNSIGNED NOT NULL ,
   `University_id` INT NOT NULL ,
@@ -74,14 +82,16 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Students`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Students` (
+DROP TABLE `std10179db`.`Students` ;
+
+CREATE  TABLE `std10179db`.`Students` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Univ_ID` VARCHAR(45) NULL ,
-  `Name` VARCHAR(45) NOT NULL ,
-  `Surname` VARCHAR(45) NOT NULL ,
+  `Name` VARCHAR(45) NULL ,
+  `Surname` VARCHAR(45) NULL ,
   `Telephone` VARCHAR(45) NULL ,
   `Semester` INT NULL ,
-  `Department_id` INT UNSIGNED NOT NULL ,
+  `Department_id` INT UNSIGNED NULL ,
   PRIMARY KEY (`id`, `Department_id`) ,
   UNIQUE INDEX `idStudents_UNIQUE` (`id` ASC) ,
   INDEX `fk_Students_Department1` (`Department_id` ASC) ,
@@ -101,11 +111,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Professors`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Professors` (
+DROP TABLE `std10179db`.`Professors` ;
+
+CREATE  TABLE `std10179db`.`Professors` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Name` VARCHAR(45) NULL ,
   `Surname` VARCHAR(45) NULL ,
-  `Department` INT UNSIGNED NOT NULL ,
+  `Department` INT UNSIGNED NULL ,
   `Studied_Field` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`, `Department`) ,
   UNIQUE INDEX `idProfessors_UNIQUE` (`id` ASC) ,
@@ -126,11 +138,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Note_Dist`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Note_Dist` (
+DROP TABLE `std10179db`.`Note_Dist` ;
+
+CREATE  TABLE `std10179db`.`Note_Dist` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Title` VARCHAR(45) NULL ,
-  `Name` VARCHAR(45) NOT NULL ,
-  `Surname` VARCHAR(45) NOT NULL ,
+  `Name` VARCHAR(45) NULL ,
+  `Surname` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `idNote_Dist_UNIQUE` (`id` ASC) ,
   CONSTRAINT `fk_Note_Dist_Users1`
@@ -144,6 +158,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Publishers`
 -- -----------------------------------------------------
+DROP TABLE `std10179db`.`Publishers` ;
+
 CREATE  TABLE IF NOT EXISTS `std10179db`.`Publishers` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Name` VARCHAR(45) NULL ,
@@ -168,7 +184,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Books`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Books` (
+DROP TABLE `std10179db`.`Books` ;
+
+CREATE  TABLE `std10179db`.`Books` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Publisher` INT UNSIGNED NOT NULL ,
   `ISBN` VARCHAR(45) NOT NULL ,
@@ -198,7 +216,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Notes`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Notes` (
+DROP TABLE `std10179db`.`Notes` ;
+
+CREATE  TABLE `std10179db`.`Notes` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Studied_Field` VARCHAR(45) NULL ,
   `Subject` VARCHAR(45) NULL ,
@@ -219,7 +239,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Asked`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Asked` (
+DROP TABLE `std10179db`.`Asked` ;
+
+CREATE  TABLE `std10179db`.`Asked` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Date` DATE NOT NULL ,
   `Student` INT UNSIGNED NOT NULL ,
@@ -239,7 +261,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Books_to_Take`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Books_to_Take` (
+DROP TABLE `std10179db`.`Books_to_Take` ;
+
+CREATE  TABLE `std10179db`.`Books_to_Take` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Book` INT UNSIGNED NOT NULL ,
   `Asked_id` INT UNSIGNED NOT NULL ,
@@ -263,7 +287,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Coursess`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Coursess` (
+DROP TABLE `std10179db`.`Coursess` ;
+
+CREATE  TABLE `std10179db`.`Coursess` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Department` INT UNSIGNED NOT NULL ,
   `Title` VARCHAR(45) NULL ,
@@ -282,7 +308,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Proposed`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Proposed` (
+DROP TABLE `std10179db`.`Proposed` ;
+
+CREATE  TABLE `std10179db`.`Proposed` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Book` INT UNSIGNED NOT NULL ,
   `Course` INT UNSIGNED NOT NULL ,
@@ -306,7 +334,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Professors_has_Proposed`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Professors_has_Proposed` (
+DROP TABLE `std10179db`.`Professors_has_Proposed` ;
+
+CREATE  TABLE `std10179db`.`Professors_has_Proposed` (
   `Professors_id` INT UNSIGNED NOT NULL ,
   `Proposed_id` INT NOT NULL ,
   PRIMARY KEY (`Professors_id`, `Proposed_id`) ,
@@ -328,7 +358,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Approved_Books`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Approved_Books` (
+DROP TABLE `std10179db`.`Approved_Books` ;
+
+CREATE  TABLE `std10179db`.`Approved_Books` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Book` INT UNSIGNED NOT NULL ,
   `Course` INT UNSIGNED NOT NULL ,
@@ -352,7 +384,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Secretaries_has_Approved_Books`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Secretaries_has_Approved_Books` (
+DROP TABLE `std10179db`.`Secretaries_has_Approved_Books` ;
+
+CREATE  TABLE `std10179db`.`Secretaries_has_Approved_Books` (
   `Secretaries_id` INT UNSIGNED NOT NULL ,
   `Approved_Books_id` INT NOT NULL ,
   PRIMARY KEY (`Secretaries_id`, `Approved_Books_id`) ,
@@ -374,7 +408,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Courses_has_Professors`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `std10179db`.`Courses_has_Professors` (
+DROP TABLE `std10179db`.`Courses_has_Professors` ;
+
+CREATE  TABLE `std10179db`.`Courses_has_Professors` (
   `Courses_id` INT UNSIGNED NOT NULL ,
   `Professors_id` INT UNSIGNED NOT NULL ,
   PRIMARY KEY (`Courses_id`, `Professors_id`) ,
