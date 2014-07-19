@@ -1,6 +1,6 @@
 <?php
 
-include 'db_link.php';
+//include 'db_link.php';
 // Creates mapping between db tables and objects
 // Every class is a db table with their private data being the db columns
 
@@ -26,15 +26,15 @@ class Book
     {
         // Gets book from db and calls set_book
 
-        $Linker = new DBLink();          
-        session_start();
-        $_SESSION['link']=$Linker;
+        //$Linker = new DBLink();          
+        //session_start();
+        //$_SESSION['link']=$Linker;
         
-        $correctinfo = $Linker->DBLinking();
-        if($correctinfo==false)
-        {
-            //Throw exception //Message with database problem at connection
-        } 
+        //$correctinfo = $Linker->DBLinking();
+        //if($correctinfo==false)
+        //{
+        //    //Throw exception //Message with database problem at connection
+        //} 
                
         $query = "SELECT *
                        FROM Books
@@ -97,18 +97,7 @@ class Publisher
     
     function __construct($search_value) 
     {
-        // Gets publisher from db and calls set_publisher
-
-        $Linker = new DBLink();          
-        session_start();
-        $_SESSION['link']=$Linker;
-        
-        $correctinfo = $Linker->DBLinking();
-        if($correctinfo==false)
-        {
-            //Throw exception //Message with database problem at connection
-        } 
-               
+        // Gets publisher from db and calls set_publisher              
         $query = "SELECT *
                        FROM Publishers
                        WHERE id = ?";
@@ -151,18 +140,7 @@ class Student
 
     function __construct($search_value) 
     {
-        // Gets student from db and calls set_student
-
-        $Linker = new DBLink();          
-        session_start();
-        $_SESSION['link']=$Linker;
-        
-        $correctinfo = $Linker->DBLinking();
-        if($correctinfo==false)
-        {
-            //Throw exception //Message with database problem at connection
-        } 
-               
+        // Gets student from db and calls set_student             
         $query = "SELECT *
                        FROM Students
                        WHERE id = ?";
@@ -209,18 +187,7 @@ class Professor
 
     function __construct($search_value) 
     {
-        // Gets professor from db and calls set_professor
-
-        $Linker = new DBLink();          
-        session_start();
-        $_SESSION['link']=$Linker;
-        
-        $correctinfo = $Linker->DBLinking();
-        if($correctinfo==false)
-        {
-            //Throw exception //Message with database problem at connection
-        } 
-               
+        // Gets professor from db and calls set_professor              
         $query = "SELECT *
                        FROM Professors
                        WHERE id = ?";
@@ -280,18 +247,7 @@ class User
 
     function __construct($search_value) 
     {
-        // Gets professor from db and calls set_professor
-
-        $Linker = new DBLink();          
-        session_start();
-        $_SESSION['link']=$Linker;
-        
-        $correctinfo = $Linker->DBLinking();
-        if($correctinfo==false)
-        {
-            //Throw exception //Message with database problem at connection
-        } 
-               
+        // Gets professor from db and calls set_professor              
         $query = "SELECT *
                        FROM Users
                        WHERE id = ?";
