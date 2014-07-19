@@ -4,7 +4,7 @@
 // Creates mapping between db tables and objects
 // Every class is a db table with their private data being the db columns
 
-class db_Book 
+class db_Book
 {
 
     private $id;
@@ -22,20 +22,11 @@ class db_Book
     private $abstract;
     private $publish_date;
 
-    function __construct($search_value) 
+    function __construct($search_value)
     {
         // Gets book from db and calls set_book
 
-        //$Linker = new DBLink();          
-        //session_start();
-        //$_SESSION['link']=$Linker;
-        
-        //$correctinfo = $Linker->DBLinking();
-        //if($correctinfo==false)
-        //{
-        //    //Throw exception //Message with database problem at connection
-        //} 
-        Global $Linker;      
+        Global $Linker;
         $query = "SELECT *
                        FROM Books
                        WHERE id = ?";
@@ -43,19 +34,19 @@ class db_Book
         mysqli_stmt_bind_param($stmt,"i",$search_value);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id,$Publisher,$ISBN,$Title,$Author,$Field_of_Study,$Publish_Date);
-        
-        while(mysqli_stmt_fetch($stmt)) 
+
+        while(mysqli_stmt_fetch($stmt))
             $this->set_book($id,$Title,$Field_of_Study,"",$Author,"",$ISBN,$Publisher,"","","","","","",$Publish_Date);
-        
+
         mysqli_stmt_close($stmt);
-        
+
         //$Linker->DBclose_link();
     }
 
 
     function set_book($id, $title, $type, $cover_image, $authors, $edition, $isbn,
                       $publisher, $webpage, $location, $cover, $dimensions,
-                      $pages, $abstract, $publish_date) 
+                      $pages, $abstract, $publish_date)
     {
         $this->id = $id;
         $this->title = $title;
@@ -71,7 +62,7 @@ class db_Book
         $this->publish_date = $publish_date;
     }
 
-    function get_id(){return $this->id;}  
+    function get_id(){return $this->id;}
     function get_title(){return $this->title;}
     function get_type(){return $this->type;}
     function get_cover_image(){return $this->cover_image;}
@@ -83,21 +74,21 @@ class db_Book
     function get_location(){return $this->location;}
     function get_dimensions(){return $this->dimensions;}
     function get_pages(){return $this->pages;}
-    function get_abstract(){return $this->abstract;}  
+    function get_abstract(){return $this->abstract;}
     function get_p_date(){return $this->publish_date;}
 }
 
-class db_Publisher 
+class db_Publisher
 {
 
     private $id;
     private $name;
     private $telephone;
     private $id_nd;
-    
-    function __construct($search_value) 
+
+    function __construct($search_value)
     {
-        // Gets publisher from db and calls set_publisher              
+        // Gets publisher from db and calls set_publisher
         Global $Linker;
         $query = "SELECT *
                        FROM Publishers
@@ -106,27 +97,27 @@ class db_Publisher
         mysqli_stmt_bind_param($stmt,"i",$search_value);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id, $Name, $Telephone, $id_ND);
-        
-        while(mysqli_stmt_fetch($stmt)) $this->set_publisher($id, $Name, $Telephone, $id_ND);       
-        
+
+        while(mysqli_stmt_fetch($stmt)) $this->set_publisher($id, $Name, $Telephone, $id_ND);
+
         mysqli_stmt_close($stmt);
     }
-    
-    function set_publisher($id, $name, $telephone, $id_nd) 
+
+    function set_publisher($id, $name, $telephone, $id_nd)
     {
         $this->id = $id;
         $this->name = $name;
         $this->telephone = $telephone;
         $this->id_nd = $id_nd;
     }
-    
+
     function get_id(){return $this->id;}
     function get_name(){return $this->name;}
     function get_telephone(){return $this->telephone;}
     function get_id_nd(){return $this->id_nd;}
 }
 
-class db_Student 
+class db_Student
 {
 
     private $id;
@@ -137,9 +128,9 @@ class db_Student
     private $semester;
     private $d_ID;
 
-    function __construct($search_value) 
+    function __construct($search_value)
     {
-        // Gets student from db and calls set_student             
+        // Gets student from db and calls set_student
         Global $Linker;
         $query = "SELECT *
                        FROM Students
@@ -148,14 +139,14 @@ class db_Student
         mysqli_stmt_bind_param($stmt,"i",$search_value);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id, $u_ID, $Name, $Surname, $Telephone, $Semester, $d_ID);
-        
-        while(mysqli_stmt_fetch($stmt)) $this->set_student($id, $u_ID, $Name, $Surname, $Telephone, $Semester, $d_ID);       
-        
+
+        while(mysqli_stmt_fetch($stmt)) $this->set_student($id, $u_ID, $Name, $Surname, $Telephone, $Semester, $d_ID);
+
         mysqli_stmt_close($stmt);
 
     }
-    
-    function set_student($id, $u_ID, $name, $surname, $telephone, $semester, $d_ID) 
+
+    function set_student($id, $u_ID, $name, $surname, $telephone, $semester, $d_ID)
     {
         $this->id = $id;
         $this->u_ID = $u_ID;
@@ -165,7 +156,7 @@ class db_Student
         $this->semester = $semester;
         $this->d_ID = $d_ID;
     }
-    
+
     function get_id(){return $this->id;}
     function get_u_id(){return $this->u_ID;}
     function get_name(){return $this->name;}
@@ -175,7 +166,7 @@ class db_Student
     function get_d_id(){return $this->d_ID;}
 }
 
-class db_Professor 
+class db_Professor
 {
 
     private $id;
@@ -184,9 +175,9 @@ class db_Professor
     private $d_ID;
     private $field;
 
-    function __construct($search_value) 
+    function __construct($search_value)
     {
-        // Gets professor from db and calls set_professor              
+        // Gets professor from db and calls set_professor
         Global $Linker;
         $query = "SELECT *
                        FROM Professors
@@ -195,13 +186,13 @@ class db_Professor
         mysqli_stmt_bind_param($stmt,"i",$search_value);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id, $Name, $Surname, $d_ID, $Field);
-        
-        while(mysqli_stmt_fetch($stmt)) $this->set_professor($id, $Name, $Surname, $d_ID, $Field);       
-        
+
+        while(mysqli_stmt_fetch($stmt)) $this->set_professor($id, $Name, $Surname, $d_ID, $Field);
+
         mysqli_stmt_close($stmt);
     }
-    
-    function set_professor($id, $name, $surname, $d_ID, $field) 
+
+    function set_professor($id, $name, $surname, $d_ID, $field)
     {
         $this->id = $id;
         $this->name = $name;
@@ -209,7 +200,7 @@ class db_Professor
         $this->d_ID = $d_ID;
         $this->field = $field;
     }
-    
+
     function get_id(){return $this->id;}
     function get_name(){return $this->name;}
     function get_surname(){return $this->surname;}
@@ -233,7 +224,7 @@ class db_Books_to_Take
 {
 }
 
-class db_User 
+class db_User
 {
 
     private $id;
@@ -243,9 +234,9 @@ class db_User
     private $user_type;
     private $table_id;
 
-    function __construct($search_value) 
+    function __construct($search_value)
     {
-        // Gets professor from db and calls set_professor              
+        // Gets professor from db and calls set_professor
         Global $Linker;
         $query = "SELECT *
                        FROM Users
@@ -254,13 +245,13 @@ class db_User
         mysqli_stmt_bind_param($stmt,"i",$search_value);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id, $Username, $Password, $email, $User_Class, $Table_ID);
-        
-        while(mysqli_stmt_fetch($stmt)) $this->set_user($id, $Username, $Password, $email, $User_Class, $Table_ID);       
-        
+
+        while(mysqli_stmt_fetch($stmt)) $this->set_user($id, $Username, $Password, $email, $User_Class, $Table_ID);
+
         mysqli_stmt_close($stmt);
     }
-    
-    function set_user($id, $username, $password, $email, $user_type, $table_id) 
+
+    function set_user($id, $username, $password, $email, $user_type, $table_id)
     {
         $this->id = $id;
         $this->username = $username;
@@ -269,7 +260,7 @@ class db_User
         $this->user_type = $user_type;
         $this->table_id = $table_id;
     }
-    
+
     function get_id(){return $this->id;}
     function get_username(){return $this->username;}
     function get_password(){return $this->password;}
