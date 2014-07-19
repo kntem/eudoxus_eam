@@ -4,7 +4,7 @@
 // Creates mapping between db tables and objects
 // Every class is a db table with their private data being the db columns
 
-class Book 
+class db_Book 
 {
 
     private $id;
@@ -35,7 +35,7 @@ class Book
         //{
         //    //Throw exception //Message with database problem at connection
         //} 
-               
+        Global $Linker;      
         $query = "SELECT *
                        FROM Books
                        WHERE id = ?";
@@ -49,7 +49,7 @@ class Book
         
         mysqli_stmt_close($stmt);
         
-        $Linker->DBclose_link();
+        //$Linker->DBclose_link();
     }
 
 
@@ -87,7 +87,7 @@ class Book
     function get_p_date(){return $this->publish_date;}
 }
 
-class Publisher 
+class db_Publisher 
 {
 
     private $id;
@@ -98,6 +98,7 @@ class Publisher
     function __construct($search_value) 
     {
         // Gets publisher from db and calls set_publisher              
+        Global $Linker;
         $query = "SELECT *
                        FROM Publishers
                        WHERE id = ?";
@@ -109,8 +110,6 @@ class Publisher
         while(mysqli_stmt_fetch($stmt)) $this->set_publisher($id, $Name, $Telephone, $id_ND);       
         
         mysqli_stmt_close($stmt);
-        
-        $Linker->DBclose_link();
     }
     
     function set_publisher($id, $name, $telephone, $id_nd) 
@@ -127,7 +126,7 @@ class Publisher
     function get_id_nd(){return $this->id_nd;}
 }
 
-class Student 
+class db_Student 
 {
 
     private $id;
@@ -141,6 +140,7 @@ class Student
     function __construct($search_value) 
     {
         // Gets student from db and calls set_student             
+        Global $Linker;
         $query = "SELECT *
                        FROM Students
                        WHERE id = ?";
@@ -152,8 +152,7 @@ class Student
         while(mysqli_stmt_fetch($stmt)) $this->set_student($id, $u_ID, $Name, $Surname, $Telephone, $Semester, $d_ID);       
         
         mysqli_stmt_close($stmt);
-        
-        $Linker->DBclose_link();
+
     }
     
     function set_student($id, $u_ID, $name, $surname, $telephone, $semester, $d_ID) 
@@ -176,7 +175,7 @@ class Student
     function get_d_id(){return $this->d_ID;}
 }
 
-class Professor 
+class db_Professor 
 {
 
     private $id;
@@ -188,6 +187,7 @@ class Professor
     function __construct($search_value) 
     {
         // Gets professor from db and calls set_professor              
+        Global $Linker;
         $query = "SELECT *
                        FROM Professors
                        WHERE id = ?";
@@ -199,8 +199,6 @@ class Professor
         while(mysqli_stmt_fetch($stmt)) $this->set_professor($id, $Name, $Surname, $d_ID, $Field);       
         
         mysqli_stmt_close($stmt);
-        
-        $Linker->DBclose_link();
     }
     
     function set_professor($id, $name, $surname, $d_ID, $field) 
@@ -219,23 +217,23 @@ class Professor
     function get_field(){return $this->field;}
 }
 
-class Note_Dist
+class db_Note_Dist
 {
 }
 
-class Notes
+class db_Notes
 {
 }
 
-class Asked
+class db_Asked
 {
 }
 
-class Books_to_Take
+class db_Books_to_Take
 {
 }
 
-class User 
+class db_User 
 {
 
     private $id;
@@ -248,6 +246,7 @@ class User
     function __construct($search_value) 
     {
         // Gets professor from db and calls set_professor              
+        Global $Linker;
         $query = "SELECT *
                        FROM Users
                        WHERE id = ?";
@@ -259,8 +258,6 @@ class User
         while(mysqli_stmt_fetch($stmt)) $this->set_user($id, $Username, $Password, $email, $User_Class, $Table_ID);       
         
         mysqli_stmt_close($stmt);
-        
-        $Linker->DBclose_link();
     }
     
     function set_user($id, $username, $password, $email, $user_type, $table_id) 
