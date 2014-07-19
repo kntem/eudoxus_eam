@@ -10,13 +10,13 @@
         
         function __construct()
         {
-            $this->name="std10179";
-            $this->password="SE43es";
+            $this->name="name";
+            $this->password="pass";
         }
         
         function DBLinking()
         {
-            $DB = mysqli_connect("pubsrv1.di.uoa.gr",$this->name,$this->password,"std10179db");
+            $DB = mysqli_connect("domain.di.uoa.gr",$this->name,$this->password,"std10179db");
             if(!$DB)
             {
                 printf("Connect failed: %s\n",mysqli_connect_error());
