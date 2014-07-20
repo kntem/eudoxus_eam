@@ -108,7 +108,7 @@ $user = new User();
         <div class="col-xs-2 lead mainmenu-font" style="float:right;">
             <img src="img/rss-logo-big.png">
             <img src="img/facebook-logo-big.png">
-            <a href="https://twitter.com/eudoxusgr>"<img src="img/twitter-logo-big.png"></a>
+            <a href="https://twitter.com/eudoxusgr"><img src="img/twitter-logo-big.png"></a>
         </div>
 
     </div>
