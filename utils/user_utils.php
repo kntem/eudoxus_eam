@@ -4,15 +4,16 @@ require_once 'db_utils.php';
 
 class User {
 
-    private $user_info;
-    private $user_id;
-    private $class_type_info;
+    public $user_info;
+    public $user_id;
+    public $class_type_info;
 
     function __construct()
     {
         if ($this->is_logined()){
             $this->user_id = $_SESSION['user_id'];
             $this->user_info = new db_User($this->user_id);
+            $this->class_type_info = new Student($this->user_info->get_table_id());
         }
     }
 
@@ -189,16 +190,18 @@ class Student extends User {
 
     function get_student($type_of_info)
     {
-        $Linker = new DBLink();
-        $Linker->DBLinking();
         if($type_of_info == "id") return $this->student_info->get_id();
         elseif($type_of_info == "University_ID") return $this->student_info->get_u_id();
+        elseif($type_of_info == "FullName")
+            return $this->student_info->get_name() . " " .$this->student_info->get_surname();
         elseif($type_of_info == "Name") return $this->student_info->get_name();
         elseif($type_of_info == "Surname") return $this->student_info->get_surname();
         elseif($type_of_info == "Telephone") return $this->student_info->get_telephone();
         elseif($type_of_info == "Semester") return $this->student_info->get_semester();
         elseif($type_of_info == "Department")
         {
+            $Linker = new DBLink();
+            $Linker->DBLinking();
             $d_id = $this->class_type_info->get_d_id;
             $query = "SELECT Name
                   FROM Department
@@ -212,7 +215,7 @@ class Student extends User {
 
             return $department;
         }
-        else return NULL;
+        else return "";
     }
 
     function get_statement_history($id){

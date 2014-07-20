@@ -19,7 +19,7 @@ $user = new User();
                 <span id="username">
                 <?php
                     if ($user->is_logined()){
-                        echo $user->user_info->username;
+                        echo $user->class_type_info->get_student("FullName");
                     }
                     else
                         echo "guest";
