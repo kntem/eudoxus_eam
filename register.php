@@ -85,6 +85,18 @@ if ($user->is_logined()){
                         </div>
                     </div>
                 <?php }?>
+                <?php if (isset($_SESSION['login_required']) and $_SESSION['login_required']) { ?>
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-6">
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <strong>Χρειάζεται να συνδεθείτε για να προβάλεις αυτή τη σελίδα.</strong>
+                        </div>
+                    </div>
+                <?php }?>
                 </div>
                 <div class="row ">
                     <div class="col-xs-1"></div>
@@ -114,6 +126,7 @@ if ($user->is_logined()){
             </div>
             <?php
                 $_SESSION['login_error'] = false;
+                $_SESSION['login_required'] = false
             ?>
 
 <!-- ---------------------------- REGISTRATION ---------------------------- -->

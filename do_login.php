@@ -10,8 +10,14 @@ $user = new User();
 
 $user->login($username, $password);
 
-if ($user->is_logined())
+if ($user->is_logined()) {
+    if (isset($_SESSION['redirection']) and $_SESSION['redirection']) {
+        $redirection = $_SESSION['redirection'];
+        unset($_SESSION['redirection']);
+        header(redirection);
+    }
     header( 'Location: profile.php');
+}
 else {
    $_SESSION['login_error'] = true;
     header( 'Location: register.php');

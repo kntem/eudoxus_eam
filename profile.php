@@ -1,5 +1,18 @@
 <?php
 session_start();
+
+require_once 'utils/user_utils.php';
+
+$user = new User();
+if (!$user->is_logined()){
+    $_SESSION['login_required'] = true;
+    $_SESSION['redirection'] = 'Location: profile.php';
+    header( 'Location: register.php');
+}
+else {
+    $_SESSION['login_required'] = false;
+    unset($_SESSION['redirection']);
+}
 ?>
 
 <html>
@@ -56,34 +69,31 @@ session_start();
                             <div class="tab-pane fade active in" id="details">
                                 <table class="table table-hover lead blue-font" style="font-size:15px;">
                                     <tr>
-                                        <td align="right">Ίδρυμα</td><td>Εθνικό και Καποδιστρικό Πανεπιστήμιο Αθηνών</td>
+                                        <td align="right">Ίδρυμα</td><td><? echo $user->class_type_info->get_student("University"); ?></td>
                                     </tr>
                                     <tr>
-                                        <td align="right">Σχολή</td><td>Θετικών Επιστημών</td>
+                                        <td align="right">Τμήμα</td><td><? echo $user->class_type_info->get_student("Department"); ?></td>
                                     </tr>
                                     <tr>
-                                        <td align="right">Τμήμα</td><td>Πληροφορικής και Τηλεπικοινωνιών</td>
+                                        <td align="right">Αριθμός Μητρώου</td><td><? echo $user->class_type_info->get_student("University_ID"); ?></td>
                                     </tr>
                                     <tr>
-                                        <td align="right">Αριθμός Μητρώου</td><td>1115200700192</td>
+                                    <td align="right">Ονομα</td><td><? echo $user->class_type_info->get_student("Name"); ?></td>
                                     </tr>
                                     <tr>
-                                        <td align="right">Ονομα</td><td>Κωνσταντίνος</td>
+                                        <td align="right">Επώνυμο</td><td><? echo $user->class_type_info->get_student("Surname"); ?></td>
                                     </tr>
                                     <tr>
-                                        <td align="right">Επώνυμο</td><td>Ντεμάγκος</td>
+                                        <td align="right">email</td><td><? echo $user->get_user("email"); ?></td>
                                     </tr>
                                     <tr>
-                                        <td align="right">email</td><td>std07192@di.uoa.gr</td>
+                                        <td align="right">Αριθμός Τηλεφώνου</td><td><? echo $user->class_type_info->get_student("Telephone"); ?></td>
                                     </tr>
                                     <tr>
-                                        <td align="right">Αριθμός Τηλεφώνου</td><td>6978342223</td>
+                                        <td align="right">Παραληφθέντα Συγγράμματα</td><td>2</td>
                                     </tr>
                                     <tr>
-                                        <td align="right">Παραληφθέντα Συγγράμματα</td><td>26</td>
-                                    </tr>
-                                    <tr>
-                                        <td align="right">Τρέχον Εξάμηνο</td><td>14</td>
+                                        <td align="right">Τρέχον Εξάμηνο</td><td><? echo $user->class_type_info->get_student("Semester"); ?></td>
                                     </tr>
                                 </table>
                                 <div class="col-xs-10"></div>

@@ -192,6 +192,32 @@ class Student extends User {
     {
         if($type_of_info == "id") return $this->student_info->get_id();
         elseif($type_of_info == "University_ID") return $this->student_info->get_u_id();
+        elseif($type_of_info == "University"){
+            $Linker = new DBLink();
+            $Linker->DBLinking();
+            $d_id = $this->student_info->get_d_id();
+            $query = "SELECT University_id
+                  FROM Department
+                  WHERE id = ?";
+            $stmt = mysqli_prepare($Linker->DataBase,$query);
+            mysqli_stmt_bind_param($stmt,"i",$d_id);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_bind_result($stmt,$university_id);
+            mysqli_stmt_fetch($stmt);
+            mysqli_stmt_close($stmt);
+
+            $query = "SELECT Name
+                      FROM University
+                      WHERE id = ?";
+            $stmt = mysqli_prepare($Linker->DataBase,$query);
+            mysqli_stmt_bind_param($stmt,"i",$university_id);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_bind_result($stmt,$university_name);
+            mysqli_stmt_fetch($stmt);
+            mysqli_stmt_close($stmt);
+
+            return $university_name;
+        }
         elseif($type_of_info == "FullName")
             return $this->student_info->get_name() . " " .$this->student_info->get_surname();
         elseif($type_of_info == "Name") return $this->student_info->get_name();
@@ -202,7 +228,7 @@ class Student extends User {
         {
             $Linker = new DBLink();
             $Linker->DBLinking();
-            $d_id = $this->class_type_info->get_d_id;
+            $d_id = $this->student_info->get_d_id();
             $query = "SELECT Name
                   FROM Department
                   WHERE id = ?";
