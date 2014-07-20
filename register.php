@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+require_once 'utils/user_utils.php';
+
+$user = new User();
+
+if ($user->is_logined()){
+    header( 'Location: profile.php');
+}
+
+
+
+?>
 <html>
 <head>
     <title>Eudoxus Login/Registration</title>
@@ -58,20 +72,34 @@
 
                 <div class="row" style="margin-top:20px;"></div>
 
+                <div class="row">
+                <?php if (isset($_SESSION['login_error']) and $_SESSION['login_error']) { ?>
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-4">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <strong>Λάθος όνομα χρήστη ή κωδικό! Ξαναπροσπαθήστε...</strong>
+                        </div>
+                    </div>
+                <?php }?>
+                </div>
                 <div class="row ">
                     <div class="col-xs-1"></div>
                     <div class="col-xs-11 ">
-                    <form class="form-horizontal" role="form">
-                        <div class="form-group">
+                    <form class="form-horizontal" role="form" action="do_login.php" method="post">
+                        <div class="form-group <?php if (isset($_SESSION['login_error']) and $_SESSION['login_error']) {?> has-error <?php }?>">
                             <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Όνομα χρήστη</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputRegUsername" placeholder="username or email">
+                                <input type="text" class="form-control" id="inputLoginUsername" name="LoginUsername" placeholder="username or email">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="inputRegPassword" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Email</label>
+                        <div class="form-group <?php if (isset($_SESSION['login_error']) and $_SESSION['login_error']) {?> has-error <?php }?>">
+                            <label for="inputRegPassword" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Κωδικός</label>
                             <div class="col-sm-4">
-                                <input type="password" class="form-control" id="inputRegPassword" placeholder="password">
+                                <input type="password" class="form-control" id="inputLoginPassword" name="LoginPassword" placeholder="password">
                             </div>
                         </div>
                         <div class="form-group">
@@ -84,6 +112,9 @@
                     </div>
                 </div>
             </div>
+            <?php
+                $_SESSION['login_error'] = false;
+            ?>
 
 <!-- ---------------------------- REGISTRATION ---------------------------- -->
 

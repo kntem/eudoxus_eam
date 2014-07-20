@@ -1,3 +1,10 @@
+<?php
+
+require_once 'utils/user_utils.php';
+
+$user = new User();
+
+?>
 <div id="header" class="row">
     <div class="col-xs-2"><a href="index.php"><img src="img/logo.png"></a></div>
     <div class="col-xs-5">
@@ -9,10 +16,30 @@
     </div>
     <div id=user class="dropdown col-xs-3">
         <a style="float: right; margin-top: 17px;" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
-                <span id="username">guest</span><span class="caret" style="color:white"></span>
+                <span id="username">
+                <?php
+                    if ($user->is_logined()){
+                        echo $user->user_info->username;
+                    }
+                    else
+                        echo "guest";
+                ?>
+                </span><span class="caret" style="color:white"></span>
         </a>
         <ul class="dropdown-menu" style="margin-left: 125px;" role="menu" aria-labelledby="dLabel">
-            <li><a href="register.php">Σύνδεση ή Εγγραφή</a></li>
+            <?php
+                if ($user->is_logined()) {
+            ?>
+            <li><a href="profile.php">Προφίλ</a></li>
+            <li><a href="do_logout.php">Αποσύνδεση</a></li>
+            <?php
+                }
+                else {
+            ?>
+                <li><a href="register.php">Σύνδεση ή Εγγραφή</a></li>
+            <?php
+                }
+            ?>
         </ul>
         <img style="float: right;" src="img/user-icon.png">
     </div>
@@ -81,7 +108,7 @@
         <div class="col-xs-2 lead mainmenu-font" style="float:right;">
             <img src="img/rss-logo-big.png">
             <img src="img/facebook-logo-big.png">
-            <img src="img/twitter-logo-big.png">
+            <a href="https://twitter.com/eudoxusgr>"<img src="img/twitter-logo-big.png"></a>
         </div>
 
     </div>
