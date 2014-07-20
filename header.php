@@ -14,7 +14,7 @@ $user = new User();
         </form>
         <div style="margin-top:10px;" data-toggle="modal" data-target="#AdvancedSearchModal"><img style="margin-left: 5px; cursor:pointer;" src="img/settings-icon.png"></div>
     </div>
-    <div id=user class="dropdown col-xs-3">
+    <div id="user" class="dropdown col-xs-3">
         <a style="float: right; margin-top: 17px;" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
                 <span id="username">
                 <?php

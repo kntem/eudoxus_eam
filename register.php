@@ -41,7 +41,7 @@ if ($user->is_logined()){
 
         <?php include 'header.php' ?>
 
-        <div id="content" class="row">
+        <div id="large-content" class="row">
             <div class="row">
                 <div class="col-xs-1" ></div>
                 <div class="col-xs-11" >
@@ -146,8 +146,9 @@ if ($user->is_logined()){
                     <div class="col-xs-1"></div>
                     <div class="col-xs-11" style="padding:10px;">
                         <!-- Nav tabs -->
-                        <ul class="nav nav-pills" id="registration-tabs" role="tablist" style="width: 550px;">
-                            <li class="active"><a href="#secretary-reg" role="tab" data-toggle="tab">Γραμματεία Τμήματος</a></li>
+                        <ul class="nav nav-pills" id="registration-tabs" role="tablist" style="width: 650px;">
+                            <li class="active"><a href="#student-reg" role="tab" data-toggle="tab">Φοιτητής</a></li>
+                            <li><a href="#secretary-reg" role="tab" data-toggle="tab">Γραμματεία Τμήματος</a></li>
                             <li><a href="#publisher-reg" role="tab" data-toggle="tab">Εκδότης</a></li>
                             <li><a href="#notes-provider-reg" role="tab" data-toggle="tab">Διαθέτης βοηθημάτων και σημειώσεων</a></li>
                         </ul>
@@ -155,14 +156,82 @@ if ($user->is_logined()){
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div class="tab-pane fade active in" id="secretary-reg">
-                                secretary stuff
+                            <div class="tab-pane fade active in" id="student-reg">
+                                <form class="form-horizontal" role="form" action="do_register.php" method="post">
+                                    <div class="form-group ">
+                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Όνομα χρήστη</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="inputLoginUsername" name="inputLoginUsername" placeholder="username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="inputRegPassword" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Κωδικός</label>
+                                        <div class="col-sm-4">
+                                            <input type="password" class="form-control" id="inputLoginPassword" name="inputLoginPassword" placeholder="password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="inputRegPassword" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Επαλήθευση Κωδικού</label>
+                                        <div class="col-sm-4">
+                                            <input type="password" class="form-control" id="inputLoginPasswordConfirm" name="inputLoginPasswordConfirm" placeholder="password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Όνομα</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="inputLoginName" name="inputLoginName" placeholder="name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Επώνυμο</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="inputLoginSurname" name="inputLoginSurname" placeholder="surname">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">e-mail</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="inputLoginMail" name="inputLoginMail" placeholder="e-mail">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Τηλέφωνο</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="inputLoginTelephone" name="inputLoginTelephone" placeholder="telephone number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Πανεπιστήμιο</label>
+                                        <div class="col-sm-4">
+                                            <select type="text" class="form-control" id="inputLoginiUniversity" name="inputLoginiUniversity" placeholder="university">
+                                                <option>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Τμήμα</label>
+                                        <div class="col-sm-4">
+                                            <select type="text" class="form-control" id="inputLoginDepartment" name="inputLoginDepartment" placeholder="department">
+                                                <option>Πληροφορικής και Τηλεπικοινωνιών</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-5"></div>
+                                        <div class="col-sm-2">
+                                            <button type="submit" class="btn btn-primary">Εγγραφή</button>
+                                        </div>
+                                  </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade " id="secretary-reg">
+                                secretary registration
                             </div>
                             <div class="tab-pane fade" id="publisher-reg">
-                                publisher stuff
+                                publisher registration
                             </div>
                             <div class="tab-pane fade" id="notes-provider-reg">
-                                notes provider stuff
+                                notes provider registration
                             </div>
                         </div>
                     </div>
