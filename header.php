@@ -8,8 +8,8 @@ $user = new User();
 <div id="header" class="row">
     <div class="col-xs-2"><a href="index.php"><img src="img/logo.png"></a></div>
     <div class="col-xs-5">
-        <form id="search-form">
-                <input class="search rounded" type="text" placeholder="αναζήτηση συγγραμμάτων..." required>
+        <form id="search-form" action="browse_list.php" method="GET">
+                <input class="search rounded" type="text" name="search_value" placeholder="αναζήτηση συγγραμμάτων..." required>
                 <input id="search-button" type="button" value="">
         </form>
         <div style="margin-top:10px;" data-toggle="modal" data-target="#AdvancedSearchModal"><img style="margin-left: 5px; cursor:pointer;" src="img/settings-icon.png"></div>

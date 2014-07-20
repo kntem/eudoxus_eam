@@ -1,3 +1,31 @@
+<?php
+session_start();
+
+require_once 'utils/db_utils.php';
+
+$Linker = new DBLink();
+$Linker->DBLinking();
+$query = "SELECT *
+          FROM Books
+          WHERE Title LIKE ?
+             OR Publisher LIKE ?
+             OR ISBN LIKE ?
+             OR Title LIKE ?
+             OR Author LIKE ?";
+
+
+$init_search_term = $_GET['search_value'];
+$search_term = "%".$init_search_term."%";
+
+$stmt = mysqli_prepare($Linker->DataBase,$query);
+mysqli_stmt_bind_param($stmt,"sssss",$search_term,$search_term,$search_term,$search_term,$search_term);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_bind_result($stmt, $id, $Publisher_id, $ISBN, $Title, $Author, $Field_of_Study,
+                        $Cover_image, $Binding, $Edition, $Webpage, $Location, $Dimensions, $Pages, $Abstract);
+mysqli_stmt_store_result($stmt)
+//mysqli_stmt_close($stmt);
+
+?>
 <html>
 <head>
     <title>Eudoxus</title>
@@ -34,7 +62,7 @@
                     <ol class="breadcrumb" style="background:none;">
                         <li><a href="index.php">Αρχική</a></li>
                         <li class="active">αναζήτηση</li>
-                        <li class="active">Επικοινωνία ανθρώπου υπολογιστή</li>
+                        <li class="active"><? echo $init_search_term;?></li>
                     </ol>
                 </div>
             </div>
@@ -50,7 +78,7 @@
                                     <div class="row">
                                         <div class="col-xs-1"></div>
                                         <div class="col-xs-10" style="height: 30px;">
-                                            <div class="lead">Συγγράμματα (1 αποτέλεσμα)</div>
+                                        <div class="lead">Συγγράμματα (<? echo $stmt->num_rows; ?> αποτέλεσμα)</div>
                                         </div>
                                     </div>
                                 </a>
@@ -60,15 +88,32 @@
                             <div class="panel-body">
 
                                 <!-- 1 result -->
+
+                                <?
+                                while(mysqli_stmt_fetch($stmt)) {
+
+                                   $query2 = "SELECT Name
+                                              FROM Publishers
+                                              WHERE id = ?"; 
+
+                                    $Linker2 = new DBLink();
+                                    $Linker2->DBLinking();
+
+                                    $stmt2 = mysqli_prepare($Linker2->DataBase,$query2);
+                                    mysqli_stmt_bind_param($stmt2,"s",$Publisher_id);
+                                    mysqli_stmt_execute($stmt2);
+                                    mysqli_stmt_bind_result($stmt2,$Publisher);
+                                    mysqli_stmt_fetch($stmt2);
+                                ?>
                                 <div class="row" style="margin-top: 10px;">
                                     <div class="col-xs-1"></div>
-                                    <div class="col-xs-3" style="width:auto;">
-                                        <img class="img-thumbnail" style="display: block;" src="book_img/epikoinwnia_anthrwpou_ypologisth.jpg">
+                                    <div class="col-xs-4" style="width:auto;">
+                                    <img class="img-thumbnail" style="display: block;height:200px;width:145px;" src="book_img/<? echo $Cover_image ?>">
                                     </div>
                                     <div class="col-xs-8">
                                         <div class="row blue-font lead" style="text-align:left; font-size:20px;">
                                             <div class="col-xs-5">
-                                                <span>Επικοινωνία Ανθρώπου-Υπολογιστή </span>
+                                                <span><? echo $Title ?></span>
                                             </div>
                                             <div class="col-xs-2" style="text-align:left; font-size:14px;">
                                                 <img style="float:left margin-right: 2px;" src="img/details-small-icon.png">
@@ -80,7 +125,7 @@
                                                 <img style="display: block;" src="img/user-small-icon.png">
                                             </div>
                                             <div class="col-xs-9 blue-font lead" style="text-align:left; font-size:14px;">
-                                                <span>Dix Alan J.,Finlay Janet E.,Abowd Gregory D.,Beale Russell</span>
+                                                <span><? echo $Author ?></span>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -88,7 +133,7 @@
                                                 <img style="display: block;" src="img/calendar-small-icon.png">
                                             </div>
                                             <div class="col-xs-9 blue-font lead" style="text-align:left; font-size:14px;">
-                                                <span>3η έκδ./2007</span>
+                                                <span><? echo $Edition ?></span>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -96,7 +141,7 @@
                                                 <img style="display: block;" src="img/library-small-icon.png">
                                             </div>
                                             <div class="col-xs-9 blue-font lead" style="text-align:left; font-size:14px;">
-                                                <span>ΕΚΔΟΣΕΙΣ Χ. ΓΚΙΟΥΡΔΑ & ΣΙΑ ΕΕ</span>
+                                                <span><? echo $Publisher ?></span>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -104,7 +149,7 @@
                                                 <img style="display: block;" src="img/link-small-icon.png">
                                             </div>
                                             <div class="col-xs-9 blue-font lead" style="text-align:left; font-size:14px;">
-                                                <span>Ιστοσελίδα βιβλίου</span>
+                                                <a href="<? echo $Webpage ?>"><span>Ιστοσελίδα βιβλίου</span></a>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -112,17 +157,20 @@
                                                 <img style="display: block;" src="img/maps-small-icon.png">
                                             </div>
                                             <div class="col-xs-9 blue-font lead" style="text-align:left; font-size:14px;">
-                                                <span>Ζωοδόχου Πηγής 70-74 & Καλλιδρομίου</span>
+                                                <span><? echo $Location ?></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <? } ?><? echo $stmt->num_rows; ?>
                                 <!-- end of result -->
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- end of category -->
+<?php mysqli_stmt_close($stmt);?>
+
         </div>
     </div>
 
