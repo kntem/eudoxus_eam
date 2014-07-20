@@ -56,7 +56,8 @@ class User {
 
     function register($username, $password, $user_type, $email)
     {
-        Global $Linker;
+        $Linker = new DBLink();
+        $Linker->DBLinking();
         $query = "SELECT MAX(id) FROM ".$user_type;
         $stmt = mysqli_prepare($Linker->DataBase,$query);
         mysqli_stmt_execute($stmt);
@@ -112,9 +113,41 @@ class User {
 
     function update_profile($email, $password)
     {
+        $Linker = new DBLink();
+        $Linker->DBLinking();
+        if($this->is_logined())
+        {
+        echo("HERE");
+            $this->user_info->update_info($email, $password);
+
+            $query = "UPDATE Users
+                      SET Password = ?, email = ?
+                      WHERE id = ?";
+            $stmt = mysqli_prepare($Linker->DataBase,$query);
+            mysqli_stmt_bind_param($stmt,"ssi",$password,$email,$this->session_id);
+            mysqli_stmt_execute($stmt);
+        }
+    }
+
+    function update_student($u_ID, $name, $surname, $telephone, $semester, $department)
+    {
+        $this->class_type_info->update_info($this->get_student_info("id"), $u_ID, $name, $surname, $telephone, $semester, $department);
     }
 
     function get_user_type(){return $this->user_info->get_user_type();}
+
+    function get_user($type_of_info)
+    {
+        if($type_of_info == "Username") return $this->user_info->get_username();
+        elseif($type_of_info == "Password") return $this->user_info->get_password();
+        elseif($type_of_info == "email") return $this->user_info->get_email();
+        else return NULL;
+    }
+
+    function get_student_info($type_of_info)
+    {
+        return $this->class_type_info->get_student($type_of_info);
+    }
 
     function send_mail($id){
     }
@@ -128,6 +161,58 @@ class Student extends User {
     function __construct($search_value)
     {
         $this->student_info = new db_Student($search_value);
+    }
+
+    function update_info($id, $u_ID, $name, $surname, $telephone, $semester, $department)
+    {
+        $Linker = new DBLink();
+        $Linker->DBLinking();
+        $query = "SELECT id
+                  FROM Department
+                  WHERE Name = ?";
+        $stmt = mysqli_prepare($Linker->DataBase,$query);
+        mysqli_stmt_bind_param($stmt,"s",$department);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt,$d_ID);
+        mysqli_stmt_fetch($stmt);
+        mysqli_stmt_close($stmt);
+
+        $this->student_info->set_student($id, $u_ID, $name, $surname, $telephone, $semester, $d_ID);
+
+        $query = "UPDATE Students
+                  SET Univ_ID = ?, Name = ?, Surname = ?, Telephone = ?, Semester = ?, Department_id = ?
+                  WHERE id = ?";
+        $stmt = mysqli_prepare($Linker->DataBase,$query);
+        mysqli_stmt_bind_param($stmt,"ssssiii",$u_ID,$name,$surname,$telephone,$semester,$d_ID,$id);
+        mysqli_stmt_execute($stmt);
+    }
+
+    function get_student($type_of_info)
+    {
+        $Linker = new DBLink();
+        $Linker->DBLinking();
+        if($type_of_info == "id") return $this->student_info->get_id();
+        elseif($type_of_info == "University_ID") return $this->student_info->get_u_id();
+        elseif($type_of_info == "Name") return $this->student_info->get_name();
+        elseif($type_of_info == "Surname") return $this->student_info->get_surname();
+        elseif($type_of_info == "Telephone") return $this->student_info->get_telephone();
+        elseif($type_of_info == "Semester") return $this->student_info->get_semester();
+        elseif($type_of_info == "Department")
+        {
+            $d_id = $this->class_type_info->get_d_id;
+            $query = "SELECT Name
+                  FROM Department
+                  WHERE id = ?";
+            $stmt = mysqli_prepare($Linker->DataBase,$query);
+            mysqli_stmt_bind_param($stmt,"i",$d_id);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_bind_result($stmt,$department);
+            mysqli_stmt_fetch($stmt);
+            mysqli_stmt_close($stmt);
+
+            return $department;
+        }
+        else return NULL;
     }
 
     function get_statement_history($id){
@@ -151,18 +236,18 @@ class Professor extends User
 {
     private $professor_info;
 
-    function __construct($search_value) 
+    function __construct($search_value)
     {
         $this->professor_info = new db_Professor($search_value);
     }
 }
 
 
-class Publisher extends User 
+class Publisher extends User
 {
     private $publisher_info;
-    
-    function __construct($search_value) 
+
+    function __construct($search_value)
     {
         $this->publisher_info = new db_Publisher($search_value);
     }
