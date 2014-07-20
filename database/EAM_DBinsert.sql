@@ -28,6 +28,12 @@ INSERT INTO `std10179db`.`Users`
 VALUES (7,"manol","safsdg3333","manol@di.uoa.gr","Professors",1);
 
 -- -----------------------------------------------------
+-- Table `mydb`.`University`
+-- -----------------------------------------------------
+
+INSERT INTO `std10179db`.`University`
+VALUES (1, "Πανεπιστήμιο Αθηνών");
+-- -----------------------------------------------------
 -- Table `mydb`.`Department`
 -- -----------------------------------------------------
 
@@ -82,9 +88,9 @@ VALUES (1,
         "Dix Alan J.,Finlay Janet E.,Abowd Gregory D.,Beale Russell", 
         "",
         "epikoinwnia_anthrwpou_ypologisth.jpg", 
+        "Σκληρό Εξώφυλλο", 
         "3η έκδ./2007", 
         "http://www.hcibook.com/", 
-        "Σκληρό Εξώφυλλο", 
         "Ζωοδόχου Πηγής 70-74 & Καλλιδρομίου, Αθήνα", 
         "24 x 17 εκ.",
         856,
@@ -110,9 +116,9 @@ VALUES (2,
         "Αβούρης Νικόλαος", 
         "",
         "eisagwgh_sthn_epikoinwnia_anthrwpou_ypologisth.jpg", 
+        "Σκληρό Εξώφυλλο", 
         "1η έκδ.", 
         "http://www.diavlosbooks.gr/book.asp?cid=46", 
-        "Σκληρό Εξώφυλλο", 
         "Μαυρομιχάλη 72-74, Αθήνα", 
         "24 x 17 εκ.",
         284,
@@ -131,9 +137,9 @@ VALUES (3,
         "Αβούρης Νικόλαος", 
         "",
         "eisagwgh_sthn_epikoinwnia_anthrwpou_ypologisth.jpg", 
+        "Σκληρό Εξώφυλλο", 
         "1η έκδ.", 
         "http://www.klidarithmos.gr/texnhth-nohmosynh-2h-ekdosh", 
-        "Σκληρό Εξώφυλλο", 
         "Στοά του Βιβλίου, Πεσματζόγλου 5, 105 64 Αθήνα", 
         "21 x 29 εκ.",
         1200,

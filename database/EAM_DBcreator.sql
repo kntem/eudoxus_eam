@@ -49,6 +49,7 @@ DROP TABLE `std10179db`.`University` ;
 
 CREATE  TABLE `std10179db`.`University` (
   `id` INT NOT NULL ,
+  `Name` VARCHAR(128) NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -60,6 +61,7 @@ DROP TABLE `std10179db`.`Department` ;
 
 CREATE  TABLE `std10179db`.`Department` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `Name` VARCHAR(128) NOT NULL ,
   `Secretary` INT UNSIGNED NOT NULL ,
   `University_id` INT NOT NULL ,
   PRIMARY KEY (`id`, `Secretary`) ,
