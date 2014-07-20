@@ -1,6 +1,6 @@
 <?php
 
-//include 'db_link.php';
+require_once 'db_link.php';
 // Creates mapping between db tables and objects
 // Every class is a db table with their private data being the db columns
 
@@ -26,7 +26,8 @@ class db_Book
     {
         // Gets book from db and calls set_book
 
-        Global $Linker;
+        $Linker = new DBLink();
+        $Linker->DBLinking();
         $query = "SELECT *
                        FROM Books
                        WHERE id = ?";
@@ -89,7 +90,8 @@ class db_Publisher
     function __construct($search_value)
     {
         // Gets publisher from db and calls set_publisher
-        Global $Linker;
+        $Linker = new DBLink();
+        $Linker->DBLinking();
         $query = "SELECT *
                        FROM Publishers
                        WHERE id = ?";
@@ -131,7 +133,8 @@ class db_Student
     function __construct($search_value)
     {
         // Gets student from db and calls set_student
-        Global $Linker;
+        $Linker = new DBLink();
+        $Linker->DBLinking();
         $query = "SELECT *
                        FROM Students
                        WHERE id = ?";
@@ -178,7 +181,8 @@ class db_Professor
     function __construct($search_value)
     {
         // Gets professor from db and calls set_professor
-        Global $Linker;
+        $Linker = new DBLink();
+        $Linker->DBLinking();
         $query = "SELECT *
                        FROM Professors
                        WHERE id = ?";
@@ -236,12 +240,12 @@ class db_User
 
     function __construct($search_value)
     {
-        // Gets professor from db and calls set_professor
-        Global $Linker;
+        $Linker = new DBLink();
+        $Linker->DBLinking();
         $query = "SELECT *
                        FROM Users
                        WHERE id = ?";
-        $stmt = mysqli_prepare($Linker->DataBase,$query);
+        $stmt = mysqli_prepare($Linker->DataBase, $query);
         mysqli_stmt_bind_param($stmt,"i",$search_value);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id, $Username, $Password, $email, $User_Class, $Table_ID);
