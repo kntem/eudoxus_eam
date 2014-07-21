@@ -158,59 +158,137 @@ if ($user->is_logined()){
                         <div class="tab-content">
                             <div class="tab-pane fade active in" id="student-reg">
                                 <form class="form-horizontal" role="form" action="do_register.php" method="post">
-                                    <div class="form-group ">
-                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Όνομα χρήστη</label>
+                                    <div class="form-group <? if (isset($_SESSION['register_error']['Username']['error'])) { ?> has-error<?php } ?>">
+                                        <label for="inputLoginUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Όνομα χρήστη</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="inputLoginUsername" name="inputLoginUsername" placeholder="username">
+                                            <?php if (isset($_SESSION['register_error']['Username']['error'])) { ?>
+                                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        <span class="sr-only">Close</span>
+                                                    </button>
+                                                    <? echo $_SESSION['register_error']['Username']['error']; ?>
+                                                </div>
+                                            <? } ?>
+                                            <input type="text" class="form-control" id="inputLoginUsername" name="inputLoginUsername" placeholder="username"
+                                                   value="<? echo $_SESSION['register_values']['Username']; ?>">
                                         </div>
+
                                     </div>
-                                    <div class="form-group ">
-                                        <label for="inputRegPassword" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Κωδικός</label>
+                                    <div class="form-group <? if (isset($_SESSION['register_error']['Password']['error'])) { ?> has-error<?php } ?>">
+                                        <label for="inputLoginPassword" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Κωδικός</label>
                                         <div class="col-sm-4">
+                                            <?php if (isset($_SESSION['register_error']['Password']['error'])) { ?>
+                                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        <span class="sr-only">Close</span>
+                                                    </button>
+                                                    <? echo $_SESSION['register_error']['Password']['error']; ?>
+                                                </div>
+                                            <? } ?>
                                             <input type="password" class="form-control" id="inputLoginPassword" name="inputLoginPassword" placeholder="password">
                                         </div>
                                     </div>
-                                    <div class="form-group ">
-                                        <label for="inputRegPassword" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Επαλήθευση Κωδικού</label>
+                                    <div class="form-group <? if (isset($_SESSION['register_error']['Password']['error'])) { ?> has-error<?php } ?>">
+                                        <label for="inputLoginPasswordConfirm" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Επαλήθευση Κωδικού</label>
                                         <div class="col-sm-4">
                                             <input type="password" class="form-control" id="inputLoginPasswordConfirm" name="inputLoginPasswordConfirm" placeholder="password">
                                         </div>
                                     </div>
-                                    <div class="form-group ">
-                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Όνομα</label>
+                                    <div class="form-group <? if (isset($_SESSION['register_error']['Name']['error'])) { ?> has-error<?php } ?>">
+                                        <label for="inputLoginName" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Όνομα</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="inputLoginName" name="inputLoginName" placeholder="name">
+                                            <?php if (isset($_SESSION['register_error']['Name']['error'])) { ?>
+                                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        <span class="sr-only">Close</span>
+                                                    </button>
+                                                    <? echo $_SESSION['register_error']['Name']['error']; ?>
+                                                </div>
+                                            <? } ?>
+                                            <input type="text" class="form-control" id="inputLoginName" name="inputLoginName" placeholder="name"
+                                                   value="<? echo $_SESSION['register_values']['Name']; ?>">
                                         </div>
                                     </div>
-                                    <div class="form-group ">
-                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Επώνυμο</label>
+                                    <div class="form-group <? if (isset($_SESSION['register_error']['Surname']['error'])) { ?> has-error<?php } ?>">
+                                        <label for="inputLoginSurname" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Επώνυμο</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="inputLoginSurname" name="inputLoginSurname" placeholder="surname">
+                                            <?php if (isset($_SESSION['register_error']['Surname']['error'])) { ?>
+                                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        <span class="sr-only">Close</span>
+                                                    </button>
+                                                    <? echo $_SESSION['register_error']['Surname']['error']; ?>
+                                                </div>
+                                            <? } ?>
+                                            <input type="text" class="form-control" id="inputLoginSurname" name="inputLoginSurname" placeholder="surname"
+                                                   value="<? echo $_SESSION['register_values']['Surname']; ?>">
                                         </div>
                                     </div>
-                                    <div class="form-group ">
-                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">e-mail</label>
+                                    <div class="form-group <? if (isset($_SESSION['register_error']['Mail']['error'])) { ?> has-error<?php } ?>">
+                                        <label for="inputLoginMail" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">e-mail</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="inputLoginMail" name="inputLoginMail" placeholder="e-mail">
+                                            <?php if (isset($_SESSION['register_error']['Mail']['error'])) { ?>
+                                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        <span class="sr-only">Close</span>
+                                                    </button>
+                                                    <? echo $_SESSION['register_error']['Mail']['error']; ?>
+                                                </div>
+                                            <? } ?>
+                                            <input type="text" class="form-control" id="inputLoginMail" name="inputLoginMail" placeholder="e-mail"
+                                                   value="<? echo $_SESSION['register_values']['Mail']; ?>">
                                         </div>
                                     </div>
-                                    <div class="form-group ">
-                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Τηλέφωνο</label>
+                                    <div class="form-group <? if (isset($_SESSION['register_error']['Telephone']['error'])) { ?> has-error<?php } ?>">
+                                        <label for="inputLoginTelephone" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Τηλέφωνο</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="inputLoginTelephone" name="inputLoginTelephone" placeholder="telephone number">
+                                            <?php if (isset($_SESSION['register_error']['Telephone']['error'])) { ?>
+                                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        <span class="sr-only">Close</span>
+                                                    </button>
+                                                    <? echo $_SESSION['register_error']['Telephone']['error']; ?>
+                                                </div>
+                                            <? } ?>
+                                            <input type="text" class="form-control" id="inputLoginTelephone" name="inputLoginTelephone" placeholder="telephone number"
+                                                   value="<? echo $_SESSION['register_values']['Telephone']; ?>">
                                         </div>
                                     </div>
-                                    <div class="form-group ">
-                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Πανεπιστήμιο</label>
+                                        <div class="form-group <? if (isset($_SESSION['register_error']['University']['error'])) { ?> has-error<?php } ?>">
+                                        <label for="inputLoginiUniversity" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Πανεπιστήμιο</label>
                                         <div class="col-sm-4">
+                                            <?php if (isset($_SESSION['register_error']['University']['error'])) { ?>
+                                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        <span class="sr-only">Close</span>
+                                                    </button>
+                                                    <? echo $_SESSION['register_error']['University']['error']; ?>
+                                                </div>
+                                            <? } ?>
                                             <select type="text" class="form-control" id="inputLoginiUniversity" name="inputLoginiUniversity" placeholder="university">
                                                 <option>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group ">
-                                        <label for="inputRegUsername" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Τμήμα</label>
+                                    <div class="form-group <? if (isset($_SESSION['register_error']['Department']['error'])) { ?> has-error<?php } ?>">
+                                        <label for="inputLoginDepartment" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Τμήμα</label>
                                         <div class="col-sm-4">
+                                            <?php if (isset($_SESSION['register_error']['Department']['error'])) { ?>
+                                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        <span class="sr-only">Close</span>
+                                                    </button>
+                                                    <? echo $_SESSION['register_error']['Department']['error']; ?>
+                                                </div>
+                                            <? } ?>
                                             <select type="text" class="form-control" id="inputLoginDepartment" name="inputLoginDepartment" placeholder="department">
                                                 <option>Πληροφορικής και Τηλεπικοινωνιών</option>
                                             </select>
@@ -239,7 +317,7 @@ if ($user->is_logined()){
 
             </div>
 
-
+            <?php unset($_SESSION['register_error']) ?>
 
 
         </div>
