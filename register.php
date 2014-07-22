@@ -97,6 +97,18 @@ if ($user->is_logined()){
                         </div>
                     </div>
                 <?php }?>
+                <?php if (isset($_SESSION['register_message']['success'])) { ?>
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-6">
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <strong><? echo $_SESSION['register_message']['success']; unset($_SESSION['register_message']['success'])?></strong>
+                        </div>
+                    </div>
+                <?php }?>
                 </div>
                 <div class="row ">
                     <div class="col-xs-1"></div>
@@ -273,7 +285,7 @@ if ($user->is_logined()){
                                                 </div>
                                             <? } ?>
                                             <select type="text" class="form-control" id="inputLoginiUniversity" name="inputLoginiUniversity" placeholder="university">
-                                                <option>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
+                                                <option value="1">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
                                             </select>
                                         </div>
                                     </div>
@@ -290,8 +302,40 @@ if ($user->is_logined()){
                                                 </div>
                                             <? } ?>
                                             <select type="text" class="form-control" id="inputLoginDepartment" name="inputLoginDepartment" placeholder="department">
-                                                <option>Πληροφορικής και Τηλεπικοινωνιών</option>
+                                                <option value="1">Πληροφορικής και Τηλεπικοινωνιών</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group <? if (isset($_SESSION['register_error']['Semester']['error'])) { ?> has-error<?php } ?>">
+                                        <label for="inputLoginSemester" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Εξάμηνο</label>
+                                        <div class="col-sm-4">
+                                            <?php if (isset($_SESSION['register_error']['Semester']['error'])) { ?>
+                                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        <span class="sr-only">Close</span>
+                                                    </button>
+                                                    <? echo $_SESSION['register_error']['Semester']['error']; ?>
+                                                </div>
+                                            <? } ?>
+                                            <input type="text" class="form-control" id="inputLoginSemester" name="inputLoginSemester" placeholder="semester"
+                                                   value="<? echo $_SESSION['register_values']['Semester']; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group <? if (isset($_SESSION['register_error']['StudentID']['error'])) { ?> has-error<?php } ?>">
+                                        <label for="inputLoginStudentID" class="col-sm-2 control-label lead blue-font" style="font-size:14px;">Αριθμός Μητρώου</label>
+                                        <div class="col-sm-4">
+                                            <?php if (isset($_SESSION['register_error']['StudentID']['error'])) { ?>
+                                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        <span class="sr-only">Close</span>
+                                                    </button>
+                                                    <? echo $_SESSION['register_error']['StudentID']['error']; ?>
+                                                </div>
+                                            <? } ?>
+                                            <input type="text" class="form-control" id="inputLoginStudentID" name="inputLoginStudentID" placeholder="student ID"
+                                                   value="<? echo $_SESSION['register_values']['StudentID']; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -317,7 +361,7 @@ if ($user->is_logined()){
 
             </div>
 
-            <?php unset($_SESSION['register_error']) ?>
+            <?php unset($_SESSION['register_error']); ?>
 
 
         </div>

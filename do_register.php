@@ -74,10 +74,40 @@ $_SESSION['register_values']['University'] = $University;
 $Department = $_POST['inputLoginDepartment'];
 $_SESSION['register_values']['Department'] = $Department;
 
+$Semester = $_POST['inputLoginSemester'];
+$_SESSION['register_values']['Semester'] = $Semester;
+
+if (!is_numeric($Semester)){
+    $_SESSION['register_error']['Semester']['error'] = 'Το εξάμηνο πρέπει να είναι αριθμός.';
+}
+
+$StudentID = $_POST['inputLoginStudentID'];
+$_SESSION['register_values']['StudentID'] = $StudentID;
+
+if (!is_numeric($StudentID)){
+    $_SESSION['register_error']['StudentID']['error'] = 'Ο αριθμός μητρώου πρέπει να είναι αριθμός.duh';
+}
 
 if (isset($_SESSION['register_error'])){
     header('Location: register.php');
 }
+else {
+    require_once 'utils/user_utils.php';
 
+    $user = new User();
+
+
+    $new_ids = $user->register($Username, $Password, "Students", $Mail);
+    $user_id = $new_ids[0];
+    $student_id = $new_ids[1];
+
+
+    $student = new Student($student_id);
+    $student->update_info($student_id, $user_id, $Name, $Surname, $Telephone, 8, $department);
+
+    unset($_SESSION['register_values']);
+    $_SESSION['register_message']['success'] = "Η εγγραφή ολοκληρώθηκε επιτυχώς!";
+    header('Location: register.php');
+}
 ?>
 
