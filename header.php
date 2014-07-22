@@ -101,9 +101,9 @@ $user = new User();
 <div id="mainmenu" class="row">
     <div class="row text-center" >
         <div class="col-xs-2 "><a href="index.php" class="lead mainmenu-font">Αρχική</a></div>
-        <div class="col-xs-2 lead mainmenu-font">Ανακοινώσεις</div>
-        <div class="col-xs-2 lead mainmenu-font">Επικοινωνία</div>
-        <div class="col-xs-2 lead mainmenu-font">Χρήσιμα</div>
+        <div class="col-xs-2 "><a href="info_page.php?page=announcements" class="lead mainmenu-font">Ανακοινώσεις</a></div>
+        <div class="col-xs-2 "><a href="info_page.php?page=contact" class="lead mainmenu-font">Επικοινωνία</a></div>
+        <div class="col-xs-2 "><a href="info_page.php?page=useful" class="lead mainmenu-font">Χρήσιμα</a></div>
         <div class="col-xs-2"></div>
         <div class="col-xs-2 lead mainmenu-font" style="float:right;">
             <img src="img/rss-logo-big.png">
