@@ -57,29 +57,29 @@ $user = new User();
                 <h4 class="modal-title">Σύνθετη Αναζήτηση</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" role="form" action="browse_list.php?" method="get">
                     <div class="form-group">
-                        <label for="inputRegUsername" class="col-sm-4 control-label lead blue-font" style="font-size:14px;">Τίτλος</label>
+                        <label for="inputTitle" class="col-sm-4 control-label lead blue-font" style="font-size:14px;">Τίτλος</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="inputAdvancedSearchTitle" placeholder="">
+                            <input type="text" class="form-control" id="inputTitle" placeholder="" name="Title">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputRegUsername" class="col-sm-4 control-label lead blue-font" style="font-size:14px;">Συγγραφέας</label>
+                        <label for="inputAuthor" class="col-sm-4 control-label lead blue-font" style="font-size:14px;">Συγγραφέας</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="inputAdvancedSearchTitle" placeholder="">
+                            <input type="text" class="form-control" id="inputAuthor" placeholder="" name="Author">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputRegUsername" class="col-sm-4 control-label lead blue-font" style="font-size:14px;">ISBN</label>
+                        <label for="inputISBN" class="col-sm-4 control-label lead blue-font" style="font-size:14px;">ISBN</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="inputAdvancedSearchTitle" placeholder="">
+                            <input type="text" class="form-control" id="inputISBN" placeholder="" name="ISBN">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputRegUsername" class="col-sm-4 control-label lead blue-font" style="font-size:14px;">Εκδότης</label>
+                        <label for="inputPublisher" class="col-sm-4 control-label lead blue-font" style="font-size:14px;">Εκδότης</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="inputAdvancedSearchTitle" placeholder="">
+                            <input type="text" class="form-control" id="inputPublisher" placeholder="" name="Publisher">
                         </div>
                     </div>
                     <div class="form-group">

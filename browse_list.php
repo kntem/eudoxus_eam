@@ -3,22 +3,46 @@ session_start();
 
 require_once 'utils/db_utils.php';
 
+
 $Linker = new DBLink();
 $Linker->DBLinking();
+
+
+if (isset($_GET['Title']) or isset($_GET['Author']) or isset($_GET['ISBN']) or isset($_GET['Publisher'])){
+
+
+$Title = $_GET['Title'];
+$Author = $_GET['Author'];
+$ISBN = $_GET['ISBN'];
+$Publisher = $_GET['Publisher'];
+
+
 $query = "SELECT *
           FROM Books
           WHERE Title LIKE ?
              OR Publisher LIKE ?
              OR ISBN LIKE ?
-             OR Title LIKE ?
              OR Author LIKE ?";
 
+    $stmt = mysqli_prepare($Linker->DataBase,$query);
+    mysqli_stmt_bind_param($stmt,"ssss",$Title,$Publisher,$ISBN,$Author);
+}
+else {
+    $query = "SELECT *
+              FROM Books
+              WHERE Title LIKE ?
+                 OR Publisher LIKE ?
+                 OR ISBN LIKE ?
+                 OR Author LIKE ?";
 
-$init_search_term = $_GET['search_value'];
-$search_term = "%".$init_search_term."%";
 
-$stmt = mysqli_prepare($Linker->DataBase,$query);
-mysqli_stmt_bind_param($stmt,"sssss",$search_term,$search_term,$search_term,$search_term,$search_term);
+    $init_search_term = $_GET['search_value'];
+    $search_term = "%".$init_search_term."%";
+
+    $stmt = mysqli_prepare($Linker->DataBase,$query);
+    mysqli_stmt_bind_param($stmt,"ssss",$search_term,$search_term,$search_term,$search_term);
+}
+
 mysqli_stmt_execute($stmt);
 mysqli_stmt_bind_result($stmt, $id, $Publisher_id, $ISBN, $Title, $Author, $Field_of_Study,
                         $Cover_image, $Binding, $Edition, $Webpage, $Location, $Dimensions, $Pages, $Abstract);
