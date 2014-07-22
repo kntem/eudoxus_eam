@@ -95,6 +95,8 @@ class User {
         mysqli_stmt_bind_param($stmt,"i",$max_id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+
+        return [$new_id, $max_id]; //returns the new ids for user and user type
     }
 
     function is_logined()
