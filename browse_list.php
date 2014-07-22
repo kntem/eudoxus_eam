@@ -113,11 +113,11 @@ mysqli_stmt_store_result($stmt)
                                     <div class="col-xs-8">
                                         <div class="row blue-font lead" style="text-align:left; font-size:20px;">
                                             <div class="col-xs-5">
-                                                <span><? echo $Title ?></span>
+                                               <a href="browse_item.php?book_id=<? echo $id; ?>"> <span><? echo $Title ?></span></a>
                                             </div>
                                             <div class="col-xs-2" style="text-align:left; font-size:14px;">
                                                 <img style="float:left margin-right: 2px;" src="img/details-small-icon.png">
-                                                <span>λεπτομέρειες</span>
+                                                <a href="browse_item.php?book_id=<? echo $id; ?>"><span>λεπτομέρειες</span></a>
                                             </div>
                                         </div>
                                         <div class="row">
